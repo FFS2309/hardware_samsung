@@ -279,7 +279,7 @@ Return<uint64_t> BiometricsFingerprint::preEnroll() {
 Return<RequestStatus> BiometricsFingerprint::enroll(const hidl_array<uint8_t, 69>& hat,
                                                     uint32_t gid, uint32_t timeoutSec) {
     const hw_auth_token_t* authToken = reinterpret_cast<const hw_auth_token_t*>(hat.data());
-
+    request(23, 1);
     return ErrorFilter(ss_fingerprint_enroll(authToken, gid, timeoutSec));
 }
 
